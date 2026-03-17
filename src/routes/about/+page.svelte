@@ -45,14 +45,14 @@
         <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#7DC242] text-white font-bold flex items-center justify-center font-display">2</div>
         <div>
           <h4 class="font-bold text-[#2D2A3E] mb-1">Anyone can take what they need</h4>
-          <p class="text-[#2D2A3E]/65 text-sm leading-relaxed">The fridge is unlocked and accessible 24/7. No sign-in, no questions asked. Grab what you need — whether that's one item or a week's worth of groceries.</p>
+          <p class="text-[#2D2A3E]/65 text-sm leading-relaxed">The fridge is unlocked and accessible 24/7. No sign-in, no questions asked. Grab what you need anytime.</p>
         </div>
       </div>
       <div class="flex gap-4">
         <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#E8538A] text-white font-bold flex items-center justify-center font-display">3</div>
         <div>
           <h4 class="font-bold text-[#2D2A3E] mb-1">We host community events</h4>
-          <p class="text-[#2D2A3E]/65 text-sm leading-relaxed">From free soup-and-sandwich days to birthday parties to really-really-free markets, we build community around food and mutual support.</p>
+          <p class="text-[#2D2A3E]/65 text-sm leading-relaxed">From free soup-and-sandwich days to pancake breakfasts to really-really-free markets, we build community around food and mutual support.</p>
         </div>
       </div>
     </div>
