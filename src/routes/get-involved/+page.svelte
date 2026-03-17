@@ -35,6 +35,7 @@
       <div class="bg-[#FDE8F0] rounded-2xl p-6 border border-[#E8538A]/20">
         <h4 class="font-bold text-[#c93d72] mb-3 flex items-center gap-2"><span>❌</span> Please don't bring</h4>
         <ul class="text-sm text-[#2D2A3E]/70 space-y-1 leading-relaxed">
+          <li>Clothes</li>
           <li>Expired food</li>
           <li>Opened or partially consumed items</li>
           <li>Unlabelled home-cooked meals</li>
