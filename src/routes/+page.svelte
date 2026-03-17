@@ -90,7 +90,7 @@
 <section class="bg-[#2D2A3E] py-16">
   <div class="max-w-5xl mx-auto px-4 text-center">
     <h2 class="font-display text-4xl font-black text-white mb-3">
-      Weber Eats <span class="text-[#E8538A]">Events</span>
+      Community <span class="text-[#E8538A]">Events</span>
     </h2>
     <p class="text-gray-300 max-w-lg mx-auto mb-8 leading-relaxed">
       We host free community meals, really-really-free markets, and seasonal celebrations throughout the year. Everyone is welcome — always.
@@ -107,8 +107,6 @@
     <p class="text-xs uppercase tracking-widest text-[#2D2A3E]/40 font-semibold mb-6">Community Partners</p>
     <div class="flex flex-wrap justify-center items-center gap-8 text-[#2D2A3E]/50 font-semibold text-sm">
       <span class="hover:text-[#E8538A] transition-colors cursor-default">Ogden Mutual Aid</span>
-      <span class="text-[#E8538A]">🍉</span>
-      <span class="hover:text-[#E8538A] transition-colors cursor-default">Lost Texan BBQ</span>
       <span class="text-[#7DC242]">🌿</span>
       <span class="hover:text-[#E8538A] transition-colors cursor-default">Urban Prairie Agriculture</span>
     </div>

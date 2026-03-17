@@ -67,16 +67,11 @@
   <!-- Partners -->
   <div>
     <h2 class="font-display text-3xl font-black text-[#2D2A3E] mb-6">Our Partners</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div class="bg-white rounded-2xl p-6 border border-[#FDE8F0] shadow-sm text-center">
         <div class="text-3xl mb-3">✊</div>
         <h4 class="font-display font-bold text-[#E8538A] mb-1">Ogden Mutual Aid</h4>
         <p class="text-xs text-[#2D2A3E]/60 leading-relaxed">Grassroots community support and solidarity across Weber County.</p>
-      </div>
-      <div class="bg-white rounded-2xl p-6 border border-[#EEF8E4] shadow-sm text-center">
-        <div class="text-3xl mb-3">🔥</div>
-        <h4 class="font-display font-bold text-[#7DC242] mb-1">Lost Texan BBQ</h4>
-        <p class="text-xs text-[#2D2A3E]/60 leading-relaxed">Local BBQ joint that brings the heat to our community events and feeds the fridge.</p>
       </div>
       <div class="bg-white rounded-2xl p-6 border border-[#FDE8F0] shadow-sm text-center">
         <div class="text-3xl mb-3">🌾</div>

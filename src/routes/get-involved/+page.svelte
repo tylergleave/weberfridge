@@ -71,7 +71,16 @@
           Donate Now 🍉
         </a>
       </div>
-      <p class="text-xs text-[#2D2A3E]/40 mt-5">Donations are processed securely through HCB (Hack Club).</p>
+      <p class="text-xs text-[#2D2A3E]/40 mt-5">
+        Donations are processed securely through HCB (Hack Club).
+        We believe in full financial transparency —
+        <a
+          href="https://hcb.hackclub.com/weber-fridge"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#E8538A] hover:underline"
+        >view our public finances here</a>.
+      </p>
     </div>
   </div>
 

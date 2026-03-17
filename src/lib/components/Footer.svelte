@@ -63,7 +63,7 @@
     </div>
 
     <div class="mt-10 pt-6 border-t border-white/10 text-center text-xs text-gray-500">
-      <p>Weber Fridge — Ogden, UT &nbsp;·&nbsp; In partnership with Ogden Mutual Aid, Lost Texan BBQ &amp; Urban Prairie Agriculture</p>
+      <p>Weber Fridge — Ogden, UT &nbsp;·&nbsp; In partnership with Ogden Mutual Aid &amp; Urban Prairie Agriculture</p>
     </div>
   </div>
 </footer>
