@@ -115,9 +115,21 @@
         </div>
       {/each}
     </div>
-    <p class="text-sm text-[#2D2A3E]/60 mt-6">
-      Interested in volunteering? Follow us on <a href="https://www.instagram.com/weberfridge" class="text-[#E8538A] hover:underline">Instagram</a> or check our Linktree to get in touch.
-    </p>
+    <div class="mt-6 bg-[#EEF8E4] rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div class="text-3xl">📲</div>
+      <div class="flex-1">
+        <p class="font-bold text-[#2D2A3E] mb-1">Join the volunteer Signal chat</p>
+        <p class="text-sm text-[#2D2A3E]/65 leading-relaxed">The best way to get plugged in is our volunteer group on Signal — that's where we coordinate restocking, events, and everything in between.</p>
+      </div>
+      <a
+        href="https://signal.group/#CjQKIHPfRBG3WsthyhPAmgnTBvY9l_MynKi4fL6R_5ZwJI9sEhBo9ZZy6Wyy1GNsxQC7Upda"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#7DC242] text-white font-bold text-sm hover:bg-[#5A9A2A] transition-colors shadow"
+      >
+        Join Signal →
+      </a>
+    </div>
   </div>
 
 </section>

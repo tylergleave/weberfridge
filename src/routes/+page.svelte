@@ -122,8 +122,18 @@
     <p class="text-[#2D2A3E]/70 max-w-md mx-auto mb-8">
       Whether you want to donate food, volunteer time, or just spread the word — every bit makes a difference.
     </p>
-    <a href="/get-involved" class="px-8 py-4 rounded-full bg-[#7DC242] text-white font-bold text-lg hover:bg-[#5A9A2A] transition-colors shadow-lg inline-block">
-      Get Involved 🍉
-    </a>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/get-involved" class="px-8 py-4 rounded-full bg-[#7DC242] text-white font-bold text-lg hover:bg-[#5A9A2A] transition-colors shadow-lg inline-block">
+        Get Involved 🍉
+      </a>
+      <a
+        href="https://signal.group/#CjQKIHPfRBG3WsthyhPAmgnTBvY9l_MynKi4fL6R_5ZwJI9sEhBo9ZZy6Wyy1GNsxQC7Upda"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-8 py-4 rounded-full border-2 border-[#7DC242] text-[#5A9A2A] font-bold text-lg hover:bg-[#EEF8E4] transition-colors inline-block"
+      >
+        📲 Volunteer Signal Chat
+      </a>
+    </div>
   </div>
 </section>
