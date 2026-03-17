@@ -1,24 +1,6 @@
 <script>
   // Placeholder events — replace with real data or a CMS
   const upcomingEvents = [
-    {
-      title: 'Weber Eats: Free Community Meal',
-      date: 'Saturday, April 5, 2026',
-      time: '2:00 PM – 4:00 PM',
-      location: '301 E 28th Street, Ogden UT',
-      description: 'Come join us for a free hot meal with the community. Bring yourself, bring a friend, bring a dish if you want — but you don\'t have to.',
-      tags: ['Free Meal', 'All Welcome'],
-      color: '#E8538A',
-    },
-    {
-      title: 'Really Really Free Market',
-      date: 'Saturday, April 19, 2026',
-      time: '2:00 PM – 5:00 PM',
-      location: '301 E 28th Street, Ogden UT',
-      description: 'Bring things you no longer need. Take things you do. No money, no trades, no strings attached. Clothing, books, housewares, and more.',
-      tags: ['Free Market', 'Bring & Take'],
-      color: '#7DC242',
-    },
   ];
 
   const pastEvents = [
