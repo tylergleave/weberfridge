@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <!-- Green rind outer -->
+  <path d="M10,130 Q10,30 100,10 Q190,30 190,130 Z" fill="#7DC242"/>
+  <!-- White inner rind -->
+  <path d="M22,130 Q22,42 100,24 Q178,42 178,130 Z" fill="#FFFFFF"/>
+  <!-- Pink flesh -->
+  <path d="M34,130 Q34,54 100,38 Q166,54 166,130 Z" fill="#E8538A"/>
+  <!-- Bite taken out of top -->
+  <path d="M80,38 Q100,28 120,38 Q112,52 100,48 Q88,52 80,38 Z" fill="#FFFFFF"/>
+  <!-- Seeds -->
+  <ellipse cx="70" cy="80" rx="5" ry="8" fill="#2D2A3E" transform="rotate(-20, 70, 80)"/>
+  <ellipse cx="90" cy="65" rx="5" ry="8" fill="#2D2A3E" transform="rotate(10, 90, 65)"/>
+  <ellipse cx="110" cy="65" rx="5" ry="8" fill="#2D2A3E" transform="rotate(-10, 110, 65)"/>
+  <ellipse cx="130" cy="80" rx="5" ry="8" fill="#2D2A3E" transform="rotate(20, 130, 80)"/>
+  <ellipse cx="80" cy="100" rx="5" ry="8" fill="#2D2A3E" transform="rotate(-15, 80, 100)"/>
+  <ellipse cx="100" cy="90" rx="5" ry="8" fill="#2D2A3E" transform="rotate(5, 100, 90)"/>
+  <ellipse cx="120" cy="100" rx="5" ry="8" fill="#2D2A3E" transform="rotate(15, 120, 100)"/>
+  <ellipse cx="95" cy="115" rx="5" ry="8" fill="#2D2A3E" transform="rotate(-5, 95, 115)"/>
+  <ellipse cx="115" cy="112" rx="5" ry="8" fill="#2D2A3E" transform="rotate(10, 115, 112)"/>
+</svg>

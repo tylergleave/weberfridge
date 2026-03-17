@@ -1,3 +1,33 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap');
+
+@theme {
+  --color-pink-brand: #E8538A;
+  --color-pink-light: #F4A7C3;
+  --color-pink-pale: #FDE8F0;
+  --color-green-brand: #7DC242;
+  --color-green-dark: #5A9A2A;
+  --color-seed: #2D2A3E;
+  --color-maroon: #6B1A1A;
+  --color-cream: #FFF9F5;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-seed);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
