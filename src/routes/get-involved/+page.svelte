@@ -57,21 +57,21 @@
       <h2 class="font-display text-3xl font-black text-[#E8538A]">Donate Money</h2>
     </div>
     <p class="text-[#2D2A3E]/70 leading-relaxed mb-6">
-      Financial donations help us cover electricity costs, maintenance, event supplies, and more. Every dollar goes directly to keeping the fridge running and our community fed.
+      Financial donations help us cover maintenance, event supplies, grocery runs, and more. Every dollar goes directly to keeping the fridge running and our community fed.
     </p>
     <div class="bg-white rounded-3xl p-8 border border-[#FDE8F0] shadow-sm text-center">
       <p class="font-display text-xl font-bold text-[#2D2A3E] mb-6">Ways to give</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a
-          href="https://linktr.ee/weberfridge"
+          href="https://hcb.hackclub.com/donations/start/weber-fridge"
           target="_blank"
           rel="noopener noreferrer"
           class="px-6 py-3 rounded-full bg-[#E8538A] text-white font-bold hover:bg-[#c93d72] transition-colors shadow"
         >
-          View Donation Links 🍉
+          Donate Now 🍉
         </a>
       </div>
-      <p class="text-xs text-[#2D2A3E]/40 mt-5">Check our Linktree for the most current donation options (Venmo, PayPal, etc.)</p>
+      <p class="text-xs text-[#2D2A3E]/40 mt-5">Donations are processed securely through HCB (Hack Club).</p>
     </div>
   </div>
 
