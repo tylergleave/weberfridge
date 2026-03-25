@@ -32,6 +32,19 @@
 
 <section class="max-w-3xl mx-auto px-4 py-16">
 
+  <!-- Recurring events -->
+  <h2 class="font-display text-3xl font-black text-[#7DC242] mb-6">Every Week</h2>
+  <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#EEF8E4] flex flex-col sm:flex-row mb-14">
+    <div class="sm:w-3 flex-shrink-0 bg-[#7DC242]"></div>
+    <div class="p-7 flex-1">
+      <span class="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-[#7DC242]/10 text-[#5A9A2A] mb-3">Recurring · Every Sunday</span>
+      <h3 class="font-display text-2xl font-black text-[#2D2A3E] mb-1">Community Breakfast</h3>
+      <p class="text-sm text-[#2D2A3E]/60 mb-1">📅 Every Sunday &nbsp;·&nbsp; ⏰ 10:00 AM – 12:00 PM</p>
+      <p class="text-sm text-[#2D2A3E]/60 mb-4">📍 301 E 28th Street, Ogden UT</p>
+      <p class="text-sm text-[#2D2A3E]/70 leading-relaxed">Join us every Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week.</p>
+    </div>
+  </div>
+
   <h2 class="font-display text-3xl font-black text-[#E8538A] mb-8">Upcoming Events</h2>
 
   {#if upcomingEvents.length > 0}
