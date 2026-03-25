@@ -1,5 +1,5 @@
 <script>
-  import watermelon from '$lib/assets/watermelon.svg';
+  const logo = '/images/fridge_logo.png';
 </script>
 
 <svelte:head>
@@ -34,7 +34,7 @@
     </div>
     <div class="flex-shrink-0">
       <img
-        src={watermelon}
+        src={logo}
         alt="Weber Fridge watermelon"
         class="w-56 md:w-80 drop-shadow-2xl animate-[spin_20s_linear_infinite] hover:[animation-play-state:paused]"
         style="animation: float 4s ease-in-out infinite;"
@@ -83,6 +83,42 @@
       </p>
     </div>
 
+  </div>
+</section>
+
+<!-- Community photo gallery -->
+<section class="max-w-5xl mx-auto px-4 py-16">
+  <h2 class="font-display text-4xl font-black text-[#2D2A3E] mb-2 text-center">Community in Action</h2>
+  <p class="text-center text-[#2D2A3E]/60 mb-10 italic font-display">Real moments from the fridge and our events</p>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div class="col-span-2 row-span-2 rounded-3xl overflow-hidden aspect-square">
+      <img
+        src="/images/community_events/breakfast_1.jpg"
+        alt="A volunteer serving coffee at a Weber Fridge community breakfast event"
+        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+      />
+    </div>
+    <div class="rounded-3xl overflow-hidden aspect-square">
+      <img
+        src="/images/community_events/pancakes_1.jpg"
+        alt="Pancakes cooking on the griddle at a Weber Fridge community breakfast"
+        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+      />
+    </div>
+    <div class="rounded-3xl overflow-hidden aspect-square">
+      <img
+        src="/images/community_events/fridge_2.jpg"
+        alt="The exterior of the Weber Fridge with its colorful painted door"
+        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+      />
+    </div>
+    <div class="col-span-2 rounded-3xl overflow-hidden" style="aspect-ratio: 2/1;">
+      <img
+        src="/images/community_events/fridge_1.jpg"
+        alt="The Weber Fridge open and fully stocked with food and pantry items"
+        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+      />
+    </div>
   </div>
 </section>
 

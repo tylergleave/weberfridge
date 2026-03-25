@@ -82,10 +82,24 @@
   </div>
 
   <!-- Find us -->
-  <div class="bg-[#2D2A3E] rounded-3xl p-10 text-white text-center">
-    <h2 class="font-display text-3xl font-black text-[#E8538A] mb-2">Find the Fridge</h2>
-    <p class="text-gray-300 mb-4">We're at 301 E 28th Street, Ogden, UT 84414</p>
-    <p class="text-sm text-gray-400">Open 24/7 — no need to knock</p>
+  <div>
+    <h2 class="font-display text-3xl font-black text-[#2D2A3E] mb-6">Find the Fridge</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 rounded-3xl overflow-hidden">
+      <img
+        src="/images/community_events/fridge_2.jpg"
+        alt="The exterior of the Weber Fridge with its colorful painted door at 301 E 28th Street"
+        class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+      />
+      <img
+        src="/images/community_events/fridge_1.jpg"
+        alt="The Weber Fridge open and stocked with food and pantry items"
+        class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+      />
+    </div>
+    <div class="bg-[#2D2A3E] rounded-3xl p-8 text-white text-center">
+      <p class="text-gray-300 mb-1">301 E 28th Street, Ogden, UT 84414</p>
+      <p class="text-sm text-gray-400">Open 24/7 — no need to knock</p>
+    </div>
   </div>
 
 </section>

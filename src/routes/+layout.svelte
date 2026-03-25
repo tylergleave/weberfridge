@@ -1,6 +1,5 @@
 <script>
   import './layout.css';
-  import watermelon from '$lib/assets/watermelon.svg';
   import Header from '$lib/components/Header.svelte';
   import Footer from '$lib/components/Footer.svelte';
 
@@ -8,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href={watermelon} />
+  <link rel="icon" href="/images/fridge_logo.png" />
   <meta name="description" content="Weber Fridge — Free Food, No Stigma. A community fridge serving Ogden, UT." />
 </svelte:head>
 
