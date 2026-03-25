@@ -40,7 +40,7 @@
       <span class="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-[#7DC242]/10 text-[#5A9A2A] mb-3">Recurring · Every Sunday</span>
       <h3 class="font-display text-2xl font-black text-[#2D2A3E] mb-1">Community Breakfast</h3>
       <p class="text-sm text-[#2D2A3E]/60 mb-1">📅 Every Sunday &nbsp;·&nbsp; ⏰ 10:00 AM – 12:00 PM</p>
-      <p class="text-sm text-[#2D2A3E]/60 mb-4">📍 301 E 28th Street, Ogden UT</p>
+      <p class="text-sm text-[#2D2A3E]/60 mb-4">📍 <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="hover:text-[#E8538A] transition-colors">301 E 28th Street, Ogden UT</a></p>
       <p class="text-sm text-[#2D2A3E]/70 leading-relaxed">Join us every Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week.</p>
     </div>
   </div>

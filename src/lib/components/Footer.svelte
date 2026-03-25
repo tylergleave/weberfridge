@@ -36,8 +36,10 @@
       <div>
         <h4 class="font-display text-lg font-bold text-[#7DC242] mb-4">Find Us</h4>
         <address class="not-italic text-sm text-gray-300 space-y-2">
-          <p>301 E 28th Street</p>
-          <p>Ogden, UT 84414</p>
+          <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+            <p>301 E 28th Street</p>
+            <p>Ogden, UT 84414</p>
+          </a>
         </address>
         <div class="mt-4 flex gap-3">
           <a

@@ -18,7 +18,7 @@
       <h2 class="font-display text-3xl font-black text-[#7DC242]">Donate Food</h2>
     </div>
     <p class="text-[#2D2A3E]/70 leading-relaxed mb-6">
-      You can drop off food directly at the fridge at 301 E 28th Street, any time of day or night. Here's what we can and can't accept:
+      You can drop off food directly at the fridge at <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="text-[#E8538A] hover:underline">301 E 28th Street</a>, any time of day or night. Here's what we can and can't accept:
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <div class="bg-[#EEF8E4] rounded-2xl p-6 border border-[#7DC242]/20">
@@ -141,6 +141,6 @@
     <p class="font-display text-3xl font-black text-white mb-2">
       Thank you for showing up <span class="text-[#E8538A]">for each other.</span>
     </p>
-    <p class="text-gray-400 text-sm mt-3">Weber Fridge · 301 E 28th Street, Ogden UT 84414</p>
+    <p class="text-gray-400 text-sm mt-3">Weber Fridge · <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="hover:text-gray-200 transition-colors">301 E 28th Street, Ogden UT 84414</a></p>
   </div>
 </section>

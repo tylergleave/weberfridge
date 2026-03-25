@@ -21,7 +21,7 @@
         Free Food. No Stigma.
       </p>
       <p class="text-base text-[#2D2A3E]/70 max-w-md mb-8 leading-relaxed">
-        A community fridge at 301 E 28th Street, Ogden UT — stocked and maintained by neighbors, for neighbors. Take what you need, leave what you can.
+        A community fridge at <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="text-[#E8538A] hover:underline">301 E 28th Street, Ogden UT</a> — stocked and maintained by neighbors, for neighbors. Take what you need, leave what you can.
       </p>
       <div class="flex flex-wrap gap-3 justify-center md:justify-start">
         <a href="/get-involved" class="px-6 py-3 rounded-full bg-[#E8538A] text-white font-bold hover:bg-[#c93d72] transition-colors shadow-lg">

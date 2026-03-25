@@ -102,7 +102,7 @@
       />
     </div>
     <div class="bg-[#2D2A3E] rounded-3xl p-8 text-white text-center">
-      <p class="text-gray-300 mb-1">301 E 28th Street, Ogden, UT 84414</p>
+      <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors mb-1 inline-block">301 E 28th Street, Ogden, UT 84414</a>
       <p class="text-sm text-gray-400">Open 24/7 — no need to knock</p>
     </div>
   </div>
