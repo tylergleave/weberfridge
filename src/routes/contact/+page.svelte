@@ -1,5 +1,6 @@
 <script>
   import { enhance } from '$app/forms';
+  import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
 
   let { form } = $props();
 
@@ -9,6 +10,7 @@
 
 <svelte:head>
   <title>Contact — Weber Fridge</title>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </svelte:head>
 
 <section class="bg-gradient-to-br from-[#FDE8F0] to-[#EEF8E4] py-16">
@@ -102,6 +104,9 @@
           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#E8538A] focus:ring-2 focus:ring-[#E8538A]/20 outline-none transition text-sm resize-y"
         >{values.message ?? ''}</textarea>
       </div>
+
+      <!-- Turnstile widget -->
+      <div class="cf-turnstile" data-sitekey={PUBLIC_TURNSTILE_SITE_KEY} data-theme="light"></div>
 
       <button
         type="submit"
