@@ -87,11 +87,15 @@
 <section class="bg-[#EEF8E4] py-14">
   <div class="max-w-3xl mx-auto px-4 text-center">
     <h2 class="font-display text-3xl font-black text-[#7DC242] mb-3">Stay in the loop</h2>
-    <p class="text-[#2D2A3E]/65 mb-6">Follow us on Instagram or check our Linktree for the latest event announcements.</p>
-    <div class="flex justify-center gap-4">
+    <p class="text-[#2D2A3E]/65 mb-6">Follow us on Instagram or Facebook for the latest event announcements.</p>
+    <div class="flex flex-wrap justify-center gap-4">
       <a href="https://www.instagram.com/weberfridge" target="_blank" rel="noopener noreferrer"
         class="px-6 py-3 rounded-full bg-[#E8538A] text-white font-bold hover:bg-[#c93d72] transition-colors shadow">
         Instagram
+      </a>
+      <a href="https://www.facebook.com/weberfridge/" target="_blank" rel="noopener noreferrer"
+        class="px-6 py-3 rounded-full bg-[#1877F2] text-white font-bold hover:bg-[#1464d8] transition-colors shadow">
+        Facebook
       </a>
       <a href="https://linktr.ee/weberfridge" target="_blank" rel="noopener noreferrer"
         class="px-6 py-3 rounded-full border-2 border-[#7DC242] text-[#5A9A2A] font-bold hover:bg-[#EEF8E4] transition-colors">
