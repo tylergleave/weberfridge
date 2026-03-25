@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores';
-  import watermelon from '$lib/assets/watermelon.svg';
 
+  const logo = '/images/fridge_logo.png';
   let menuOpen = $state(false);
 
   const navLinks = [
@@ -9,6 +9,8 @@
     { href: '/about', label: 'About' },
     { href: '/events', label: 'Events' },
     { href: '/get-involved', label: 'Get Involved' },
+    { href: '/supporters', label: 'Supporters' },
+    { href: '/contact', label: 'Contact' },
   ];
 </script>
 
@@ -16,7 +18,7 @@
   <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
     <!-- Logo + wordmark -->
     <a href="/" class="flex items-center gap-3 group">
-      <img src={watermelon} alt="Weber Fridge watermelon logo" class="h-10 w-auto transition-transform group-hover:scale-110" />
+      <img src={logo} alt="Weber Fridge watermelon logo" class="h-10 w-auto transition-transform group-hover:scale-110" />
       <div class="leading-tight">
         <span class="block font-display text-xl font-black text-[#E8538A] leading-none">Weber</span>
         <span class="block font-display text-xl font-black text-[#7DC242] leading-none">Fridge</span>

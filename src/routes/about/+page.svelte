@@ -67,17 +67,22 @@
   <!-- Partners -->
   <div>
     <h2 class="font-display text-3xl font-black text-[#2D2A3E] mb-6">Our Partners</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div class="bg-white rounded-2xl p-6 border border-[#FDE8F0] shadow-sm text-center">
-        <div class="text-3xl mb-3">✊</div>
-        <h4 class="font-display font-bold text-[#E8538A] mb-1">Ogden Mutual Aid</h4>
-        <p class="text-xs text-[#2D2A3E]/60 leading-relaxed">Grassroots community support and solidarity across Weber County.</p>
-      </div>
-      <div class="bg-white rounded-2xl p-6 border border-[#FDE8F0] shadow-sm text-center">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <a href="https://urbanprairieag.com/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-6 border border-[#EEF8E4] shadow-sm text-center hover:border-[#7DC242] transition-colors group">
         <div class="text-3xl mb-3">🌾</div>
-        <h4 class="font-display font-bold text-[#E8538A] mb-1">Urban Prairie Agriculture</h4>
-        <p class="text-xs text-[#2D2A3E]/60 leading-relaxed">Local urban farmers growing fresh produce for the community table.</p>
-      </div>
+        <h4 class="font-display font-bold text-[#7DC242] mb-1 group-hover:underline">Urban Prairie Agriculture</h4>
+        <p class="text-xs text-[#2D2A3E]/60 leading-relaxed">Urban Prairie graciously hosts the fridge at their property and keeps it stocked with fresh, locally grown produce.</p>
+      </a>
+      <a href="https://losttexanbbq.com/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-6 border border-[#FDE8F0] shadow-sm text-center hover:border-[#E8538A] transition-colors group">
+        <div class="text-3xl mb-3">🔥</div>
+        <h4 class="font-display font-bold text-[#E8538A] mb-1 group-hover:underline">Lost Texan BBQ</h4>
+        <p class="text-xs text-[#2D2A3E]/60 leading-relaxed">A local BBQ joint that has brought the heat to our community events and helped feed Ogden.</p>
+      </a>
+      <a href="https://www.utahrecovers.org/locations/ogden/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-6 border border-[#e8e7ef] shadow-sm text-center hover:border-[#2D2A3E] transition-colors group">
+        <div class="text-3xl mb-3">🤝</div>
+        <h4 class="font-display font-bold text-[#2D2A3E] mb-1 group-hover:underline">USARA Ogden</h4>
+        <p class="text-xs text-[#2D2A3E]/60 leading-relaxed">Utah Support Advocates for Recovery Awareness, running the Ogden Recovery Community Center.</p>
+      </a>
     </div>
   </div>
 

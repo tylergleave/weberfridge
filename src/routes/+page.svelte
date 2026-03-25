@@ -142,9 +142,11 @@
   <div class="max-w-5xl mx-auto px-4 text-center">
     <p class="text-xs uppercase tracking-widest text-[#2D2A3E]/40 font-semibold mb-6">Community Partners</p>
     <div class="flex flex-wrap justify-center items-center gap-8 text-[#2D2A3E]/50 font-semibold text-sm">
-      <span class="hover:text-[#E8538A] transition-colors cursor-default">Ogden Mutual Aid</span>
+      <a href="https://urbanprairieag.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#7DC242] transition-colors">Urban Prairie Agriculture</a>
+      <span class="text-[#E8538A]">🍉</span>
+      <a href="https://losttexanbbq.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#E8538A] transition-colors">Lost Texan BBQ</a>
       <span class="text-[#7DC242]">🌿</span>
-      <span class="hover:text-[#E8538A] transition-colors cursor-default">Urban Prairie Agriculture</span>
+      <a href="https://www.utahrecovers.org/locations/ogden/" target="_blank" rel="noopener noreferrer" class="hover:text-[#E8538A] transition-colors">USARA Ogden</a>
     </div>
   </div>
 </section>

@@ -13,7 +13,7 @@
     {
       title: 'Weber Eats: Free Soup & Sandwiches (Valentine\'s)',
       date: 'February 14, 2026',
-      description: 'A Valentine\'s Day community meal with the Ogden Mutual Aid crew. Soup, sandwiches, and solidarity.',
+      description: 'A Valentine\'s Day community meal with soup, sandwiches, and solidarity.',
       emoji: '🍲',
     },
   ];

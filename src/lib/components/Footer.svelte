@@ -1,5 +1,5 @@
 <script>
-  import watermelon from '$lib/assets/watermelon.svg';
+  const logo = '/images/fridge_logo.png';
 </script>
 
 <footer class="bg-[#2D2A3E] text-white mt-20">
@@ -9,7 +9,7 @@
       <!-- Brand column -->
       <div class="flex flex-col gap-3">
         <div class="flex items-center gap-3">
-          <img src={watermelon} alt="Weber Fridge logo" class="h-12 w-auto" />
+          <img src={logo} alt="Weber Fridge logo" class="h-12 w-auto" />
           <div class="leading-tight">
             <span class="block font-display text-2xl font-black text-[#E8538A]">Weber</span>
             <span class="block font-display text-2xl font-black text-[#7DC242]">Fridge</span>
@@ -27,6 +27,8 @@
           <li><a href="/about" class="hover:text-[#E8538A] transition-colors">About Us</a></li>
           <li><a href="/events" class="hover:text-[#E8538A] transition-colors">Events</a></li>
           <li><a href="/get-involved" class="hover:text-[#E8538A] transition-colors">Get Involved</a></li>
+          <li><a href="/supporters" class="hover:text-[#E8538A] transition-colors">Supporters</a></li>
+          <li><a href="/contact" class="hover:text-[#E8538A] transition-colors">Contact</a></li>
         </ul>
       </div>
 
@@ -63,7 +65,7 @@
     </div>
 
     <div class="mt-10 pt-6 border-t border-white/10 text-center text-xs text-gray-500">
-      <p>Weber Fridge — Ogden, UT &nbsp;·&nbsp; In partnership with Ogden Mutual Aid &amp; Urban Prairie Agriculture</p>
+      <p>Weber Fridge — Ogden, UT &nbsp;·&nbsp; With support from <a href="https://urbanprairieag.com/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">Urban Prairie Agriculture</a>, <a href="https://losttexanbbq.com/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">Lost Texan BBQ</a> &amp; <a href="https://www.utahrecovers.org/locations/ogden/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">USARA Ogden</a></p>
     </div>
   </div>
 </footer>
