@@ -7,7 +7,6 @@
     {
       name: 'Urban Prairie Agriculture',
       url: 'https://urbanprairieag.com/',
-      emoji: '🌾',
       color: '#7DC242',
       border: '#EEF8E4',
       description: 'Urban Prairie Agriculture graciously hosts the Weber Fridge at their property, making the whole operation possible. On top of that, they keep it stocked with seasonal produce grown right here in the Ogden area — a true pillar of our community.',
@@ -15,7 +14,6 @@
     {
       name: 'Lost Texan BBQ',
       url: 'https://losttexanbbq.com/',
-      emoji: '🔥',
       color: '#E8538A',
       border: '#FDE8F0',
       description: 'A beloved BBQ spot in Pleasant View serving slow-smoked brisket, pulled pork, ribs, and more. Lost Texan BBQ has brought the heat to our community events and helped feed Ogden with some seriously good food.',
@@ -23,7 +21,6 @@
     {
       name: 'USARA — Ogden Recovery Community Center',
       url: 'https://www.utahrecovers.org/locations/ogden/',
-      emoji: '🤝',
       color: '#2D2A3E',
       border: '#e8e7ef',
       description: 'Utah Support Advocates for Recovery Awareness (USARA) runs the Ogden Recovery Community Center, providing peer support, resources, and community for people in recovery. Their work and ours share a core belief: everyone deserves dignity, support, and access to what they need.',
@@ -45,29 +42,21 @@
   </p>
 
   {#each supporters as org}
-    <div class="bg-white rounded-3xl p-8 shadow-sm border flex flex-col sm:flex-row gap-6 items-start" style="border-color: {org.border};">
-      <div
-        class="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
-        style="background-color: {org.color}18;"
+    <div class="bg-white rounded-3xl p-8 shadow-sm border" style="border-color: {org.border};">
+      <h2 class="font-display text-2xl font-black mb-3" style="color: {org.color};">{org.name}</h2>
+      <p class="text-sm text-[#2D2A3E]/70 leading-relaxed mb-4">{org.description}</p>
+      <a
+        href={org.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-sm font-semibold hover:underline transition-colors"
+        style="color: {org.color};"
       >
-        {org.emoji}
-      </div>
-      <div class="flex-1">
-        <h2 class="font-display text-2xl font-black mb-2" style="color: {org.color};">{org.name}</h2>
-        <p class="text-sm text-[#2D2A3E]/70 leading-relaxed mb-4">{org.description}</p>
-        <a
-          href={org.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-sm font-semibold hover:underline transition-colors"
-          style="color: {org.color};"
-        >
-          Visit their website
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
-      </div>
+        Visit their website
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
     </div>
   {/each}
 
