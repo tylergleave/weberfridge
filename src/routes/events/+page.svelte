@@ -33,6 +33,17 @@
 <section class="max-w-3xl mx-auto px-4 py-16">
 
   <!-- Recurring events -->
+   <h2 class="font-display text-3xl font-black text-[#7DC242] mb-6">Every Month</h2>
+  <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#EEF8E4] flex flex-col sm:flex-row mb-14">
+    <div class="sm:w-3 flex-shrink-0 bg-[#7DC242]"></div>
+    <div class="p-7 flex-1">
+      <span class="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-[#7DC242]/10 text-[#5A9A2A] mb-3">Recurring · First Sunday of the Month</span>
+      <h3 class="font-display text-2xl font-black text-[#2D2A3E] mb-1">Community/Fridge Planning Meeting</h3>
+      <p class="text-sm text-[#2D2A3E]/60 mb-1">📅 First Sunday of Every Month &nbsp;·&nbsp; ⏰ 10:00 AM</p>
+      <p class="text-sm text-[#2D2A3E]/60 mb-4">📍 <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="hover:text-[#E8538A] transition-colors">301 E 28th Street, Ogden UT</a></p>
+      <p class="text-sm text-[#2D2A3E]/70 leading-relaxed">Bring hunger, yourself, a friend, questions, or an idea to make the fridge better! Your voice matters, your presence counts.</p>
+    </div>
+  </div>
   <h2 class="font-display text-3xl font-black text-[#7DC242] mb-6">Every Week</h2>
   <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#EEF8E4] flex flex-col sm:flex-row mb-14">
     <div class="sm:w-3 flex-shrink-0 bg-[#7DC242]"></div>
@@ -44,6 +55,7 @@
       <p class="text-sm text-[#2D2A3E]/70 leading-relaxed">Join us every Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week.</p>
     </div>
   </div>
+  
 
   <h2 class="font-display text-3xl font-black text-[#E8538A] mb-8">Upcoming Events</h2>
 
