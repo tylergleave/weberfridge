@@ -10,6 +10,7 @@
     { href: '/events', label: 'Events' },
     { href: '/get-involved', label: 'Get Involved' },
     { href: '/supporters', label: 'Supporters' },
+    { href: '/collabs', label: 'Collaborators' },
     { href: '/contact', label: 'Contact' },
   ];
 </script>
@@ -26,7 +27,7 @@
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-1">
+    <nav class="hidden lg:flex items-center gap-1">
       {#each navLinks as link}
         <a
           href={link.href}
@@ -48,7 +49,7 @@
 
     <!-- Mobile hamburger -->
     <button
-      class="md:hidden p-2 rounded-lg text-[#E8538A] hover:bg-[#FDE8F0]"
+      class="lg:hidden p-2 rounded-lg text-[#E8538A] hover:bg-[#FDE8F0]"
       onclick={() => (menuOpen = !menuOpen)}
       aria-label="Toggle menu"
     >
@@ -64,7 +65,7 @@
 
   <!-- Mobile menu -->
   {#if menuOpen}
-    <nav class="md:hidden border-t border-[#FDE8F0] bg-white px-4 pb-4">
+    <nav class="lg:hidden border-t border-[#FDE8F0] bg-white px-4 pb-4">
       {#each navLinks as link}
         <a
           href={link.href}
