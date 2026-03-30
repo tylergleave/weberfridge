@@ -111,17 +111,14 @@
     { name: 'Topper Bakery', url: 'http://topperbakery.com/' },
     { name: 'Tri-City Exchange', url: 'https://www.facebook.com/tricityexchangeut/' },
     { name: 'Uptown Cheapskate', url: 'https://www.uptowncheapskate.com/' },
-    { name: 'WasteLess Solutions', url: 'https://wastelesssolutions.org/' },
     { name: "We The People's Movement", url: 'https://www.instagram.com/wethepeoplesmovement' },
     { name: 'Weber County Progressive Caucus', url: null },
-    { name: 'Weber Human Services', url: 'https://www.weberhs.net/' },
     { name: 'Weber State University', url: 'https://www.weber.edu/' },
     { name: 'Weber-Morgan Health Department', url: 'https://www.webermorganhealth.gov/' },
     { name: 'WM Collective Studio', url: 'https://wmcollectivestudio.wixsite.com/wmstudio/blank-2' },
     { name: 'YCC Family Crisis Center', url: 'https://www.yccogden.org/' },
     { name: 'The Yart Sale', url: 'https://www.instagram.com/theyartsale/' },
     { name: 'Youth Futures', url: null },
-    { name: 'Youth Impact', url: 'https://youthimpactogden.org/' },
     { name: 'Zaza', url: 'https://www.facebook.com/Zaza.Historia' },
   ];
 
@@ -165,11 +162,11 @@
 
 </section>
 
-<!-- Collaborators -->
+<!-- Other Supporters -->
 <section class="bg-[#faf9fc] border-t border-[#f0edf8] py-16">
   <div class="max-w-4xl mx-auto px-4">
 
-    <h2 class="font-display text-3xl font-black text-[#2D2A3E] mb-2">Collaborators</h2>
+    <h2 class="font-display text-3xl font-black text-[#2D2A3E] mb-2">Other Supporters &amp; Collaborators</h2>
     <p class="text-[#2D2A3E]/70 leading-relaxed mb-2">
       Weber Fridge has been lifted up by an extraordinary network of organizations, businesses, churches, schools, and individuals across northern Utah and beyond.
     </p>
