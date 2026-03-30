@@ -28,7 +28,6 @@
           <li><a href="/events" class="hover:text-[#E8538A] transition-colors">Events</a></li>
           <li><a href="/get-involved" class="hover:text-[#E8538A] transition-colors">Get Involved</a></li>
           <li><a href="/supporters" class="hover:text-[#E8538A] transition-colors">Supporters</a></li>
-          <li><a href="/collabs" class="hover:text-[#E8538A] transition-colors">Collaborators</a></li>
           <li><a href="/contact" class="hover:text-[#E8538A] transition-colors">Contact</a></li>
         </ul>
       </div>

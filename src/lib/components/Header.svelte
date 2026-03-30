@@ -10,7 +10,6 @@
     { href: '/events', label: 'Events' },
     { href: '/get-involved', label: 'Get Involved' },
     { href: '/supporters', label: 'Supporters' },
-    { href: '/collabs', label: 'Collaborators' },
     { href: '/contact', label: 'Contact' },
   ];
 </script>
