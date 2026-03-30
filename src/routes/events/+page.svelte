@@ -58,8 +58,8 @@
       time: '10:00 AM – 12:00 PM',
       location: '301 E 28th Street, Ogden UT',
       locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
-      description: sameDay? 'Join us this Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week. \n\n Because this is the first sunday of the month, we\'ll also be having our Fridge Planning meeting. We encourage you to join and share your ideas for how to improve the fridge.': 'Join us this Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week.',
-      tags: sameDay ? ['Every Sunday', 'Community Meeting this week'] : ['Recurring · Every Sunday'],
+      description: sameDay? 'Join us this ' + formatDate(nextSunday) + ' for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week. \n\n Because this is the first sunday of the month, we\'ll also be having our Fridge Planning meeting. We encourage you to join and share your ideas for how to improve the fridge.': 'Join us this Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week.',
+      tags: sameDay ? ['Breakfast Every Sunday', 'Fridge Planning Meeting this week'] : ['Recurring · Every Sunday'],
       color: '#7DC242',
     },
     ...(!sameDay && nextFirstSunday ? [{
