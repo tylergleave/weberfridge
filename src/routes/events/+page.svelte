@@ -1,7 +1,87 @@
 <script>
-  // Placeholder events — replace with real data or a CMS
-  const upcomingEvents = [
+  // Compute next occurrence of a given weekday (0=Sun, 1=Mon, ...)
+  // Returns a Date at midnight local time on or after today
+  function nextWeekday(dayOfWeek) {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const diff = (dayOfWeek - today.getDay() + 7) % 7;
+    const result = new Date(today);
+    result.setDate(today.getDate() + diff);
+    return result;
+  }
+
+  // Compute the next "first Sunday of the month" on or after today.
+  // Only counts months April (3) through September (8).
+  function nextFirstSundayInSeason() {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    for (let i = 0; i < 12; i++) {
+      const year = today.getFullYear();
+      const month = (today.getMonth() + i) % 12;
+      const yearOffset = Math.floor((today.getMonth() + i) / 12);
+
+      // Only April–September (months 3–8)
+      if (month < 3 || month > 8) continue;
+
+      // Find first Sunday of this month
+      const firstOfMonth = new Date(year + yearOffset, month, 1);
+      const dayOffset = (7 - firstOfMonth.getDay()) % 7;
+      const firstSunday = new Date(year + yearOffset, month, 1 + dayOffset);
+
+      if (firstSunday >= today) return firstSunday;
+    }
+    return null;
+  }
+
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function formatDate(d) {
+    return `${DAYS[d.getDay()]}, ${MONTHS[d.getMonth()]} ${d.getDate()}`;
+  }
+
+  // Build the upcoming events list
+  const nextSunday      = nextWeekday(0);
+  const nextFirstSunday = nextFirstSundayInSeason();
+
+  // The weekly breakfast always appears. If the next Sunday happens to also be
+  // the first Sunday of the month (i.e. both events fall on the same day),
+  // combine them into one card; otherwise show separately.
+  const sameDay = nextFirstSunday &&
+    nextFirstSunday.toDateString() === nextSunday.toDateString();
+
+  const recurringEvents = [
+    {
+      title: sameDay ? 'Community Breakfast + Fridge Planning Meeting' : 'Community Breakfast',
+      date: formatDate(nextSunday),
+      time: '10:00 AM – 12:00 PM',
+      location: '301 E 28th Street, Ogden UT',
+      locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
+      description: sameDay? 'Join us this Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week. \n\n Because this is the first sunday of the month, we\'ll also be having our Fridge Planning meeting. We encourage you to join and share your ideas for how to improve the fridge.': 'Join us this Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week.',
+      tags: sameDay ? ['Every Sunday', 'Community Meeting this week'] : ['Recurring · Every Sunday'],
+      color: '#7DC242',
+    },
+    ...(!sameDay && nextFirstSunday ? [{
+      title: 'Community Meeting + Free Breakfast',
+      date: formatDate(nextFirstSunday),
+      time: '10:00 AM',
+      location: '301 E 28th Street, Ogden UT',
+      locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
+      description: 'Bring hunger, yourself, a friend, questions, or an idea to make the fridge better! Your voice matters, your presence counts. Runs April through September.',
+      tags: ['Monthly · First Sunday'],
+      color: '#E8538A',
+    }] : []),
   ];
+
+  // Sort recurring by date so the soonest comes first
+  recurringEvents.sort((a, b) => {
+    const da = new Date(a.date);
+    const db = new Date(b.date);
+    return da - db;
+  });
+
+  const upcomingEvents = [...recurringEvents];
 
   const pastEvents = [
     {
@@ -11,9 +91,9 @@
       emoji: '🎂',
     },
     {
-      title: 'Weber Eats: Free Soup & Sandwiches (Valentine\'s)',
+      title: "Weber Eats: Free Soup & Sandwiches (Valentine's)",
       date: 'February 14, 2026',
-      description: 'A Valentine\'s Day community meal with soup, sandwiches, and solidarity.',
+      description: "A Valentine's Day community meal with soup, sandwiches, and solidarity.",
       emoji: '🍲',
     },
   ];
@@ -32,61 +112,28 @@
 
 <section class="max-w-3xl mx-auto px-4 py-16">
 
-  <!-- Recurring events -->
-   <h2 class="font-display text-3xl font-black text-[#7DC242] mb-6">Every Month</h2>
-  <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#EEF8E4] flex flex-col sm:flex-row mb-14">
-    <div class="sm:w-3 flex-shrink-0 bg-[#7DC242]"></div>
-    <div class="p-7 flex-1">
-      <span class="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-[#7DC242]/10 text-[#5A9A2A] mb-3">Recurring · First Sunday of the Month</span>
-      <h3 class="font-display text-2xl font-black text-[#2D2A3E] mb-1">Community/Fridge Planning Meeting</h3>
-      <p class="text-sm text-[#2D2A3E]/60 mb-1">📅 First Sunday of Every Month &nbsp;·&nbsp; ⏰ 10:00 AM</p>
-      <p class="text-sm text-[#2D2A3E]/60 mb-4">📍 <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="hover:text-[#E8538A] transition-colors">301 E 28th Street, Ogden UT</a></p>
-      <p class="text-sm text-[#2D2A3E]/70 leading-relaxed">Bring hunger, yourself, a friend, questions, or an idea to make the fridge better! Your voice matters, your presence counts.</p>
-    </div>
-  </div>
-  <h2 class="font-display text-3xl font-black text-[#7DC242] mb-6">Every Week</h2>
-  <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#EEF8E4] flex flex-col sm:flex-row mb-14">
-    <div class="sm:w-3 flex-shrink-0 bg-[#7DC242]"></div>
-    <div class="p-7 flex-1">
-      <span class="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-[#7DC242]/10 text-[#5A9A2A] mb-3">Recurring · Every Sunday</span>
-      <h3 class="font-display text-2xl font-black text-[#2D2A3E] mb-1">Community Breakfast</h3>
-      <p class="text-sm text-[#2D2A3E]/60 mb-1">📅 Every Sunday &nbsp;·&nbsp; ⏰ 10:00 AM – 12:00 PM</p>
-      <p class="text-sm text-[#2D2A3E]/60 mb-4">📍 <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="hover:text-[#E8538A] transition-colors">301 E 28th Street, Ogden UT</a></p>
-      <p class="text-sm text-[#2D2A3E]/70 leading-relaxed">Join us every Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week.</p>
-    </div>
-  </div>
-  
-
   <h2 class="font-display text-3xl font-black text-[#E8538A] mb-8">Upcoming Events</h2>
 
-  {#if upcomingEvents.length > 0}
-    <div class="space-y-6 mb-16">
-      {#each upcomingEvents as event}
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#FDE8F0] flex flex-col sm:flex-row">
-          <!-- Color sidebar -->
-          <div class="sm:w-3 flex-shrink-0" style="background-color: {event.color};"></div>
-          <div class="p-7 flex-1">
-            <div class="flex flex-wrap gap-2 mb-3">
-              {#each event.tags as tag}
-                <span class="px-3 py-0.5 rounded-full text-xs font-semibold" style="background-color: {event.color}20; color: {event.color};">
-                  {tag}
-                </span>
-              {/each}
-            </div>
-            <h3 class="font-display text-2xl font-black text-[#2D2A3E] mb-1">{event.title}</h3>
-            <p class="text-sm text-[#2D2A3E]/60 mb-1">📅 {event.date} &nbsp;·&nbsp; ⏰ {event.time}</p>
-            <p class="text-sm text-[#2D2A3E]/60 mb-4">📍 {event.location}</p>
-            <p class="text-sm text-[#2D2A3E]/70 leading-relaxed">{event.description}</p>
+  <div class="space-y-6 mb-16">
+    {#each upcomingEvents as event}
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-[#F0F0F0] flex flex-col sm:flex-row">
+        <div class="sm:w-3 flex-shrink-0" style="background-color: {event.color};"></div>
+        <div class="p-7 flex-1">
+          <div class="flex flex-wrap gap-2 mb-3">
+            {#each event.tags as tag}
+              <span class="px-3 py-0.5 rounded-full text-xs font-semibold" style="background-color: {event.color}20; color: {event.color};">
+                {tag}
+              </span>
+            {/each}
           </div>
+          <h3 class="font-display text-2xl font-black text-[#2D2A3E] mb-1">{event.title}</h3>
+          <p class="text-sm text-[#2D2A3E]/60 mb-1">📅 {event.date} &nbsp;·&nbsp; ⏰ {event.time}</p>
+          <p class="text-sm text-[#2D2A3E]/60 mb-4">📍 <a href={event.locationUrl} target="_blank" rel="noopener noreferrer" class="hover:text-[#E8538A] transition-colors">{event.location}</a></p>
+          <p class="text-sm text-[#2D2A3E]/70 leading-relaxed whitespace-pre-line">{event.description}</p>
         </div>
-      {/each}
-    </div>
-  {:else}
-    <div class="text-center py-16 bg-white rounded-3xl border border-[#FDE8F0] mb-16">
-      <p class="text-4xl mb-4">🍉</p>
-      <p class="text-[#2D2A3E]/60 font-display italic">No events scheduled yet — check back soon!</p>
-    </div>
-  {/if}
+      </div>
+    {/each}
+  </div>
 
   <!-- Divider -->
   <div class="flex items-center gap-4 mb-10">
