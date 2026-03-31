@@ -81,7 +81,24 @@
     return da - db;
   });
 
-  const upcomingEvents = [...recurringEvents];
+  const oneTimeEvents = [
+    {
+      title: 'Weber Eats',
+      date: 'Saturday, April 11',
+      time: '2:00 PM – 4:00 PM',
+      location: '301 E 28th Street, Ogden UT',
+      locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
+      description: 'Free pizza (provided by Sizzling Platter Little Caesars), free crafts, live music, and a Really Really Free Market — presented by Weber Fridge & USARA.\n\nBring a side to share if you can! Volunteers arrive at 1 PM.',
+      tags: ['Weber Eats', 'Free Food'],
+      color: '#E8538A',
+      sortDate: new Date(2026, 3, 11), // April 11, 2026
+    },
+  ].filter(e => e.sortDate >= new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()));
+
+  const upcomingEvents = [
+    ...recurringEvents.map(e => ({ ...e, sortDate: new Date(e.date) })),
+    ...oneTimeEvents,
+  ].sort((a, b) => a.sortDate - b.sortDate);
 
   const pastEvents = [
     {
