@@ -63,7 +63,7 @@
       color: '#7DC242',
     },
     ...(!sameDay && nextFirstSunday ? [{
-      title: 'Community Meeting + Free Breakfast',
+      title: 'Community Breakfast + Fridge Planning Meeting',
       date: formatDate(nextFirstSunday),
       time: '10:00 AM',
       location: '301 E 28th Street, Ogden UT',
