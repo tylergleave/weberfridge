@@ -1,5 +1,9 @@
 <script>
+  import { langStore } from '$lib/stores/lang.svelte.js';
+  import { getT } from '$lib/i18n/index.js';
+
   const logo = '/images/fridge_logo.png';
+  const T = $derived(getT(langStore.current));
 </script>
 
 <footer class="bg-[#2D2A3E] text-white mt-20">
@@ -15,32 +19,33 @@
             <span class="block font-display text-2xl font-black text-[#7DC242]">Fridge</span>
           </div>
         </div>
-        <p class="text-sm text-gray-300 italic font-display">Free Food. No Stigma.</p>
-        <p class="text-sm text-gray-400 mt-1">A community fridge in Ogden, UT — because everyone deserves to eat.</p>
+        <p class="text-sm text-gray-300 italic font-display">{T.footer.tagline}</p>
+        <p class="text-sm text-gray-400 mt-1">{T.footer.description}</p>
       </div>
 
       <!-- Links column -->
       <div>
-        <h4 class="font-display text-lg font-bold text-[#E8538A] mb-4">Navigate</h4>
+        <h4 class="font-display text-lg font-bold text-[#E8538A] mb-4">{T.footer.navigate}</h4>
         <ul class="space-y-2 text-sm text-gray-300">
-          <li><a href="/" class="hover:text-[#E8538A] transition-colors">Home</a></li>
-          <li><a href="/about" class="hover:text-[#E8538A] transition-colors">About Us</a></li>
-          <li><a href="/events" class="hover:text-[#E8538A] transition-colors">Events</a></li>
-          <li><a href="/get-involved" class="hover:text-[#E8538A] transition-colors">Get Involved</a></li>
-          <li><a href="/supporters" class="hover:text-[#E8538A] transition-colors">Supporters</a></li>
-          <li><a href="/contact" class="hover:text-[#E8538A] transition-colors">Contact</a></li>
+          <li><a href="/" class="hover:text-[#E8538A] transition-colors">{T.nav.home}</a></li>
+          <li><a href="/about" class="hover:text-[#E8538A] transition-colors">{T.footer.aboutUs}</a></li>
+          <li><a href="/events" class="hover:text-[#E8538A] transition-colors">{T.nav.events}</a></li>
+          <li><a href="/get-involved" class="hover:text-[#E8538A] transition-colors">{T.nav.getInvolved}</a></li>
+          <li><a href="/supporters" class="hover:text-[#E8538A] transition-colors">{T.nav.supporters}</a></li>
+          <li><a href="/contact" class="hover:text-[#E8538A] transition-colors">{T.nav.contact}</a></li>
         </ul>
       </div>
 
       <!-- Contact column -->
       <div>
-        <h4 class="font-display text-lg font-bold text-[#7DC242] mb-4">Find Us</h4>
+        <h4 class="font-display text-lg font-bold text-[#7DC242] mb-4">{T.footer.findUs}</h4>
         <address class="not-italic text-sm text-gray-300 space-y-2">
           <a href="https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
             <p>301 E 28th Street</p>
             <p>Ogden, UT 84414</p>
           </a>
         </address>
+        <p class="text-xs text-gray-500 mt-1">{T.footer.hours}</p>
         <div class="mt-4 flex gap-3">
           <a
             href="https://www.instagram.com/weberfridge"
@@ -89,7 +94,7 @@
     </div>
 
     <div class="mt-10 pt-6 border-t border-white/10 text-center text-xs text-gray-500">
-      <p>Weber Fridge — Ogden, UT &nbsp;·&nbsp; With support from <a href="https://urbanprairieag.com/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">Urban Prairie Agriculture</a>, <a href="https://losttexanbbq.com/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">Lost Texan BBQ</a> &amp; <a href="https://www.utahrecovers.org/locations/ogden/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">USARA Ogden</a></p>
+      <p>Weber Fridge — Ogden, UT &nbsp;·&nbsp; {T.footer.withSupport} <a href="https://urbanprairieag.com/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">Urban Prairie Agriculture</a>, <a href="https://losttexanbbq.com/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">Lost Texan BBQ</a> &amp; <a href="https://www.utahrecovers.org/locations/ogden/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">USARA Ogden</a></p>
     </div>
   </div>
 </footer>

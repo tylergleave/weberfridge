@@ -3,46 +3,59 @@
 </svelte:head>
 
 <script>
+  import { langStore } from '$lib/stores/lang.svelte.js';
+  import { getT } from '$lib/i18n/index.js';
+
+  const T = $derived(getT(langStore.current));
+
   const supporters = [
     {
       name: 'Urban Prairie Agriculture',
       url: 'https://urbanprairieag.com/',
-      description: 'Urban Prairie Agriculture graciously hosts the Weber Fridge at their property, making the whole operation possible. On top of that, they keep it stocked with seasonal produce grown right here in the Ogden area — a true pillar of our community.',
+      descEn: 'Urban Prairie Agriculture graciously hosts the Weber Fridge at their property, making the whole operation possible. On top of that, they keep it stocked with seasonal produce grown right here in the Ogden area — a true pillar of our community.',
+      descEs: 'Urban Prairie Agriculture generosamente aloja el Weber Fridge en su propiedad, haciendo posible toda la operación. Además, lo mantienen abastecido con productos de temporada cultivados aquí mismo en el área de Ogden — un verdadero pilar de nuestra comunidad.',
     },
     {
       name: 'Lost Texan BBQ',
       url: 'https://losttexanbbq.com/',
-      description: 'A beloved BBQ spot in Pleasant View serving slow-smoked brisket, pulled pork, ribs, and more. Lost Texan BBQ has brought the heat to our community events and helped feed Ogden with some seriously good food.',
+      descEn: 'A beloved BBQ spot in Pleasant View serving slow-smoked brisket, pulled pork, ribs, and more. Lost Texan BBQ has brought the heat to our community events and helped feed Ogden with some seriously good food.',
+      descEs: 'Un querido restaurante de BBQ en Pleasant View que sirve brisket ahumado lentamente, cerdo desmenuzado, costillas y más. Lost Texan BBQ ha traído el sabor a nuestros eventos comunitarios y ha ayudado a alimentar a Ogden con comida realmente deliciosa.',
     },
     {
       name: 'USARA — Ogden Recovery Community Center',
       url: 'https://www.utahrecovers.org/locations/ogden/',
-      description: 'Utah Support Advocates for Recovery Awareness (USARA) runs the Ogden Recovery Community Center, providing peer support, resources, and community for people in recovery. Their work and ours share a core belief: everyone deserves dignity, support, and access to what they need.',
+      descEn: 'Utah Support Advocates for Recovery Awareness (USARA) runs the Ogden Recovery Community Center, providing peer support, resources, and community for people in recovery. Their work and ours share a core belief: everyone deserves dignity, support, and access to what they need.',
+      descEs: 'Utah Support Advocates for Recovery Awareness (USARA) dirige el Centro Comunitario de Recuperación de Ogden, brindando apoyo entre pares, recursos y comunidad para personas en recuperación. Su trabajo y el nuestro comparten una creencia central: todos merecen dignidad, apoyo y acceso a lo que necesitan.',
     },
     {
       name: 'The House Cat Cafe',
       url: 'https://www.thehousecatcafe.com/',
-      description: 'Ogden\'s cat cafe at 341 27th Street — scratch-made pastries, house-made chai, and a cozy lounge full of adoptable cats. An inclusive, welcoming space that has been a great friend to our community.',
+      descEn: 'Ogden\'s cat cafe at 341 27th Street — scratch-made pastries, house-made chai, and a cozy lounge full of adoptable cats. An inclusive, welcoming space that has been a great friend to our community.',
+      descEs: 'El café de gatos de Ogden en 341 27th Street — pasteles hechos desde cero, chai casero y un acogedor salón lleno de gatos adoptables. Un espacio inclusivo y acogedor que ha sido un gran amigo de nuestra comunidad.',
     },
     {
       name: 'The Episcopal Church of the Good Shepherd',
       url: 'http://www.goodshepherdogden.org/',
-      description: 'A historic and inclusive congregation at 2374 Grant Avenue in Ogden, worshiping in English and Spanish. The Good Shepherd has long been a cornerstone of community care in Weber County.',
+      descEn: 'A historic and inclusive congregation at 2374 Grant Avenue in Ogden, worshiping in English and Spanish. The Good Shepherd has long been a cornerstone of community care in Weber County.',
+      descEs: 'Una congregación histórica e inclusiva en 2374 Grant Avenue en Ogden, que celebra el culto en inglés y español. La Iglesia del Buen Pastor ha sido durante mucho tiempo un pilar del cuidado comunitario en el Condado de Weber.',
     },
     {
       name: 'WasteLess Solutions',
       url: 'https://www.wastelesssolutions.org/',
-      description: 'A Utah nonprofit that diverts surplus food from landfills to people facing food insecurity — saving millions of meals across Salt Lake, Box Elder, Summit, and Weber Counties. Their food rescue work aligns directly with ours.',
+      descEn: 'A Utah nonprofit that diverts surplus food from landfills to people facing food insecurity — saving millions of meals across Salt Lake, Box Elder, Summit, and Weber Counties. Their food rescue work aligns directly with ours.',
+      descEs: 'Una organización sin fines de lucro de Utah que desvía alimentos excedentes de los vertederos a personas que enfrentan inseguridad alimentaria — salvando millones de comidas en los condados de Salt Lake, Box Elder, Summit y Weber. Su trabajo de rescate de alimentos se alinea directamente con el nuestro.',
     },
     {
       name: 'Weber Human Services',
       url: 'https://www.weberhs.net/',
-      description: 'The local authority for mental health, substance abuse, and senior services across Weber and Morgan Counties. Weber Human Services provides compassionate, accessible care to thousands of residents who need it most.',
+      descEn: 'The local authority for mental health, substance abuse, and senior services across Weber and Morgan Counties. Weber Human Services provides compassionate, accessible care to thousands of residents who need it most.',
+      descEs: 'La autoridad local para salud mental, abuso de sustancias y servicios para personas mayores en los condados de Weber y Morgan. Weber Human Services brinda atención compasiva y accesible a miles de residentes que más lo necesitan.',
     },
     {
       name: 'Youth Impact',
       url: 'https://youthimpactogden.org/',
-      description: 'Serving Ogden\'s inner-city youth since 1992, Youth Impact provides a safe after-school haven with academic support, mentorship, arts, STEM, and life skills. They believe in the same thing we do: that every young person deserves a fair shot.',
+      descEn: 'Serving Ogden\'s inner-city youth since 1992, Youth Impact provides a safe after-school haven with academic support, mentorship, arts, STEM, and life skills. They believe in the same thing we do: that every young person deserves a fair shot.',
+      descEs: 'Sirviendo a la juventud del centro de Ogden desde 1992, Youth Impact ofrece un refugio seguro después de la escuela con apoyo académico, mentoría, artes, STEM y habilidades para la vida. Creen en lo mismo que nosotros: que cada joven merece una oportunidad justa.',
     },
   ];
 
@@ -128,8 +141,8 @@
 
 <section class="bg-gradient-to-br from-[#EEF8E4] to-[#FDE8F0] py-16">
   <div class="max-w-3xl mx-auto px-4 text-center">
-    <h1 class="font-display text-5xl font-black text-[#2D2A3E] mb-4">Supporters</h1>
-    <p class="text-lg text-[#2D2A3E]/70 italic font-display">The community behind the community fridge.</p>
+    <h1 class="font-display text-5xl font-black text-[#2D2A3E] mb-4">{T.supporters.title}</h1>
+    <p class="text-lg text-[#2D2A3E]/70 italic font-display">{T.supporters.subtitle}</p>
   </div>
 </section>
 
@@ -137,13 +150,15 @@
 <section class="max-w-3xl mx-auto px-4 py-16 space-y-6">
 
   <p class="text-[#2D2A3E]/70 leading-relaxed mb-8">
-    Weber Fridge doesn't run on its own. These organizations have shown up for us — lending food, time, partnership, and shared values. We're grateful for each of them.
+    {T.supporters.intro}
   </p>
 
   {#each supporters as org}
     <div class="bg-white rounded-2xl p-7 shadow-sm border border-[#f0eef8]">
       <h2 class="font-display text-xl font-black text-[#E8538A] mb-2">{org.name}</h2>
-      <p class="text-sm text-[#2D2A3E]/70 leading-relaxed mb-3">{org.description}</p>
+      <p class="text-sm text-[#2D2A3E]/70 leading-relaxed mb-3">
+        {langStore.current === 'es' ? org.descEs : org.descEn}
+      </p>
       {#if org.url}
         <a
           href={org.url}
@@ -151,7 +166,7 @@
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1.5 text-sm font-semibold text-[#7DC242] hover:underline transition-colors"
         >
-          Visit their website
+          {T.supporters.visitWebsite}
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -166,11 +181,11 @@
 <section class="bg-[#faf9fc] border-t border-[#f0edf8] py-16">
   <div class="max-w-4xl mx-auto px-4">
 
-    <h2 class="font-display text-3xl font-black text-[#2D2A3E] mb-2">Other Supporters &amp; Collaborators</h2>
+    <h2 class="font-display text-3xl font-black text-[#2D2A3E] mb-2">{T.supporters.otherTitle}</h2>
     <p class="text-[#2D2A3E]/70 leading-relaxed mb-2">
-      Weber Fridge has been lifted up by an extraordinary network of organizations, businesses, churches, schools, and individuals across northern Utah and beyond.
+      {T.supporters.otherText}
     </p>
-    <p class="text-xs text-[#2D2A3E]/40 mb-10">{total} collaborators listed &nbsp;·&nbsp; {linked} with links</p>
+    <p class="text-xs text-[#2D2A3E]/40 mb-10">{T.supporters.listingStats(total, linked)}</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
       {#each collabs as org}
@@ -195,7 +210,7 @@
     </div>
 
     <p class="text-xs text-center text-[#2D2A3E]/35 mt-10">
-      Know of someone we've missed? <a href="/contact" class="text-[#E8538A] hover:underline">Let us know.</a>
+      {T.supporters.missedNote} <a href="/contact" class="text-[#E8538A] hover:underline">{T.supporters.letUsKnow}</a>
     </p>
 
   </div>
@@ -204,14 +219,14 @@
 <!-- CTA -->
 <section class="max-w-3xl mx-auto px-4 py-12">
   <div class="bg-[#FDE8F0] rounded-3xl p-8 text-center">
-    <p class="font-display text-xl font-black text-[#E8538A] mb-2">Want to support Weber Fridge?</p>
-    <p class="text-sm text-[#2D2A3E]/65 mb-5">Whether you're a business, organization, or individual — there are lots of ways to get involved.</p>
+    <p class="font-display text-xl font-black text-[#E8538A] mb-2">{T.supporters.ctaTitle}</p>
+    <p class="text-sm text-[#2D2A3E]/65 mb-5">{T.supporters.ctaText}</p>
     <div class="flex flex-wrap justify-center gap-3">
       <a href="/get-involved" class="px-5 py-2.5 rounded-full bg-[#E8538A] text-white font-bold text-sm hover:bg-[#c93d72] transition-colors shadow">
-        Get Involved
+        {T.supporters.ctaGetInvolved}
       </a>
       <a href="/contact" class="px-5 py-2.5 rounded-full border-2 border-[#E8538A] text-[#E8538A] font-bold text-sm hover:bg-[#FDE8F0] transition-colors">
-        Contact Us
+        {T.supporters.ctaContact}
       </a>
     </div>
   </div>

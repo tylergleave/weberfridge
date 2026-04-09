@@ -1,11 +1,14 @@
 <script>
   import { enhance } from '$app/forms';
   import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
+  import { langStore } from '$lib/stores/lang.svelte.js';
+  import { getT } from '$lib/i18n/index.js';
 
   let { form } = $props();
 
   // Preserve field values on validation error
   let values = $derived(form?.values ?? {});
+  const T = $derived(getT(langStore.current));
 </script>
 
 <svelte:head>
@@ -15,8 +18,8 @@
 
 <section class="bg-gradient-to-br from-[#FDE8F0] to-[#EEF8E4] py-16">
   <div class="max-w-3xl mx-auto px-4 text-center">
-    <h1 class="font-display text-5xl font-black text-[#E8538A] mb-4">Contact Us</h1>
-    <p class="text-lg text-[#2D2A3E]/70 italic font-display">Questions, ideas, or just want to say hi?</p>
+    <h1 class="font-display text-5xl font-black text-[#E8538A] mb-4">{T.contact.title}</h1>
+    <p class="text-lg text-[#2D2A3E]/70 italic font-display">{T.contact.subtitle}</p>
   </div>
 </section>
 
@@ -53,7 +56,7 @@
       <svg class="w-5 h-5 text-[#3A76F0] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.103 1.523 5.828L.057 23.07a.5.5 0 0 0 .614.657l5.369-1.429A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 3.6a8.4 8.4 0 1 1 0 16.8A8.4 8.4 0 0 1 12 3.6zm-4.5 5.7a.9.9 0 0 0 0 1.8h9a.9.9 0 0 0 0-1.8h-9zm0 3.6a.9.9 0 0 0 0 1.8h5.4a.9.9 0 0 0 0-1.8H7.5z"/>
       </svg>
-      <span class="text-sm font-semibold text-[#2D2A3E] group-hover:text-[#7DC242] transition-colors">Volunteer Signal Chat</span>
+      <span class="text-sm font-semibold text-[#2D2A3E] group-hover:text-[#7DC242] transition-colors">{T.contact.signalLabel}</span>
     </a>
   </div>
 </section>
@@ -63,10 +66,10 @@
   {#if form?.success}
     <div class="bg-[#EEF8E4] border border-[#7DC242]/30 rounded-3xl p-10 text-center">
       <div class="text-5xl mb-4">🍉</div>
-      <h2 class="font-display text-2xl font-black text-[#7DC242] mb-2">Message sent!</h2>
-      <p class="text-[#2D2A3E]/70">Thanks for reaching out — we'll get back to you as soon as we can.</p>
+      <h2 class="font-display text-2xl font-black text-[#7DC242] mb-2">{T.contact.successTitle}</h2>
+      <p class="text-[#2D2A3E]/70">{T.contact.successText}</p>
       <a href="/" class="mt-6 inline-block px-6 py-2.5 rounded-full bg-[#E8538A] text-white font-bold hover:bg-[#c93d72] transition-colors">
-        Back to home
+        {T.contact.backHome}
       </a>
     </div>
 
@@ -82,7 +85,7 @@
       <!-- Name -->
       <div>
         <label for="name" class="block text-sm font-semibold text-[#2D2A3E] mb-1.5">
-          Name <span class="text-[#E8538A]">*</span>
+          {T.contact.labelName} <span class="text-[#E8538A]">{T.contact.required}</span>
         </label>
         <input
           id="name"
@@ -91,7 +94,7 @@
           required
           autocomplete="name"
           value={values.name ?? ''}
-          placeholder="Your name"
+          placeholder={T.contact.placeholderName}
           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#E8538A] focus:ring-2 focus:ring-[#E8538A]/20 outline-none transition text-sm"
         />
       </div>
@@ -99,7 +102,7 @@
       <!-- Email -->
       <div>
         <label for="email" class="block text-sm font-semibold text-[#2D2A3E] mb-1.5">
-          Email <span class="text-[#2D2A3E]/35 font-normal">(optional)</span>
+          {T.contact.labelEmail} <span class="text-[#2D2A3E]/35 font-normal">({T.contact.optional})</span>
         </label>
         <input
           id="email"
@@ -107,7 +110,7 @@
           type="email"
           autocomplete="email"
           value={values.email ?? ''}
-          placeholder="you@example.com"
+          placeholder={T.contact.placeholderEmail}
           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#E8538A] focus:ring-2 focus:ring-[#E8538A]/20 outline-none transition text-sm"
         />
       </div>
@@ -115,7 +118,7 @@
       <!-- Phone -->
       <div>
         <label for="phone" class="block text-sm font-semibold text-[#2D2A3E] mb-1.5">
-          Phone <span class="text-[#2D2A3E]/35 font-normal">(optional)</span>
+          {T.contact.labelPhone} <span class="text-[#2D2A3E]/35 font-normal">({T.contact.optional})</span>
         </label>
         <input
           id="phone"
@@ -123,7 +126,7 @@
           type="tel"
           autocomplete="tel"
           value={values.phone ?? ''}
-          placeholder="(801) 555-0123"
+          placeholder={T.contact.placeholderPhone}
           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#E8538A] focus:ring-2 focus:ring-[#E8538A]/20 outline-none transition text-sm"
         />
       </div>
@@ -131,14 +134,14 @@
       <!-- Message -->
       <div>
         <label for="message" class="block text-sm font-semibold text-[#2D2A3E] mb-1.5">
-          Message <span class="text-[#E8538A]">*</span>
+          {T.contact.labelMessage} <span class="text-[#E8538A]">{T.contact.required}</span>
         </label>
         <textarea
           id="message"
           name="message"
           required
           rows="5"
-          placeholder="What's on your mind?"
+          placeholder={T.contact.placeholderMessage}
           class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#E8538A] focus:ring-2 focus:ring-[#E8538A]/20 outline-none transition text-sm resize-y"
         >{values.message ?? ''}</textarea>
       </div>
@@ -150,11 +153,11 @@
         type="submit"
         class="w-full py-3.5 rounded-full bg-[#E8538A] text-white font-bold hover:bg-[#c93d72] transition-colors shadow"
       >
-        Send Message 🍉
+        {T.contact.submitButton}
       </button>
 
       <p class="text-xs text-center text-[#2D2A3E]/35">
-        Or reach us directly via the links above.
+        {T.contact.footerNote}
       </p>
 
     </form>

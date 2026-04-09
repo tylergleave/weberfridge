@@ -1,6 +1,11 @@
 <script>
-  // Compute next occurrence of a given weekday (0=Sun, 1=Mon, ...)
-  // Returns a Date at midnight local time on or after today
+  import { langStore } from '$lib/stores/lang.svelte.js';
+  import { getT } from '$lib/i18n/index.js';
+
+  const T = $derived(getT(langStore.current));
+
+  // ── Date helpers (language-aware) ──────────────────────────
+
   function nextWeekday(dayOfWeek) {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -10,110 +15,100 @@
     return result;
   }
 
-  // Compute the next "first Sunday of the month" on or after today.
-  // Only counts months April (3) through September (8).
   function nextFirstSundayInSeason() {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
     for (let i = 0; i < 12; i++) {
       const year = today.getFullYear();
       const month = (today.getMonth() + i) % 12;
       const yearOffset = Math.floor((today.getMonth() + i) / 12);
-
-      // Only April–September (months 3–8)
       if (month < 3 || month > 8) continue;
-
-      // Find first Sunday of this month
       const firstOfMonth = new Date(year + yearOffset, month, 1);
       const dayOffset = (7 - firstOfMonth.getDay()) % 7;
       const firstSunday = new Date(year + yearOffset, month, 1 + dayOffset);
-
       if (firstSunday >= today) return firstSunday;
     }
     return null;
   }
 
-  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  // Reactive event list — rebuilds whenever language changes.
+  // Helper that builds the list given the current translations.
+  function buildEvents(te, currentLang) {
+    const fmt = (d) => te.formatDate(d, te.months, te.days);
 
-  function formatDate(d) {
-    return `${DAYS[d.getDay()]}, ${MONTHS[d.getMonth()]} ${d.getDate()}`;
+    const nextSunday = nextWeekday(0);
+    const nextFirstSunday = nextFirstSundayInSeason();
+    const sameDay =
+      nextFirstSunday &&
+      nextFirstSunday.toDateString() === nextSunday.toDateString();
+
+    const recurring = [
+      {
+        title: sameDay ? te.breakfastCombinedTitle : te.breakfastTitle,
+        date: fmt(nextSunday),
+        time: '10:00 AM – 12:00 PM',
+        location: '301 E 28th Street, Ogden UT',
+        locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
+        description: sameDay
+          ? te.breakfastCombinedDesc(fmt(nextSunday))
+          : te.breakfastDesc(fmt(nextSunday)),
+        tags: sameDay
+          ? [te.breakfastTag, te.breakfastCombinedTag]
+          : [te.recurringTag],
+        color: '#7DC242',
+        sortDate: nextSunday,
+      },
+      ...(!sameDay && nextFirstSunday
+        ? [
+            {
+              title: te.planningTitle,
+              date: fmt(nextFirstSunday),
+              time: '10:00 AM',
+              location: '301 E 28th Street, Ogden UT',
+              locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
+              description: te.planningDesc,
+              tags: [te.planningTag],
+              color: '#E8538A',
+              sortDate: nextFirstSunday,
+            },
+          ]
+        : []),
+    ];
+
+    const today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    const oneTime = [
+      {
+        title: te.weberEatsTitle,
+        date: currentLang === 'es' ? 'sábado, 11 de abril' : 'Saturday, April 11',
+        time: '2:00 PM – 4:00 PM',
+        location: '301 E 28th Street, Ogden UT',
+        locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
+        description: te.weberEatsDesc,
+        tags: [te.weberEatsTag, te.freeFoodTag],
+        color: '#E8538A',
+        sortDate: new Date(2026, 3, 11),
+      },
+    ].filter((e) => e.sortDate >= today);
+
+    return [...recurring, ...oneTime].sort((a, b) => a.sortDate - b.sortDate);
   }
 
-  // Build the upcoming events list
-  const nextSunday      = nextWeekday(0);
-  const nextFirstSunday = nextFirstSundayInSeason();
+  const upcomingEvents = $derived(buildEvents(T.events, langStore.current));
 
-  // The weekly breakfast always appears. If the next Sunday happens to also be
-  // the first Sunday of the month (i.e. both events fall on the same day),
-  // combine them into one card; otherwise show separately.
-  const sameDay = nextFirstSunday &&
-    nextFirstSunday.toDateString() === nextSunday.toDateString();
-
-  const recurringEvents = [
+  const pastEvents = $derived([
     {
-      title: sameDay ? 'Community Breakfast + Fridge Planning Meeting' : 'Community Breakfast',
-      date: formatDate(nextSunday),
-      time: '10:00 AM – 12:00 PM',
-      location: '301 E 28th Street, Ogden UT',
-      locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
-      description: sameDay? 'Join us this ' + formatDate(nextSunday) + ' for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week. \n\n Because this is the first sunday of the month, we\'ll also be having our Fridge Planning meeting. We encourage you to join and share your ideas for how to improve the fridge.': 'Join us this Sunday morning for a free community breakfast. No sign-up, no requirements — just show up and eat. A warm meal and good company, every week.',
-      tags: sameDay ? ['Breakfast Every Sunday', 'Fridge Planning Meeting this week'] : ['Recurring · Every Sunday'],
-      color: '#7DC242',
-    },
-    ...(!sameDay && nextFirstSunday ? [{
-      title: 'Community Breakfast + Fridge Planning Meeting',
-      date: formatDate(nextFirstSunday),
-      time: '10:00 AM',
-      location: '301 E 28th Street, Ogden UT',
-      locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
-      description: 'Bring hunger, yourself, a friend, questions, or an idea to make the fridge better! Your voice matters, your presence counts. Runs April through September.',
-      tags: ['Monthly · First Sunday'],
-      color: '#E8538A',
-    }] : []),
-  ];
-
-  // Sort recurring by date so the soonest comes first
-  recurringEvents.sort((a, b) => {
-    const da = new Date(a.date);
-    const db = new Date(b.date);
-    return da - db;
-  });
-
-  const oneTimeEvents = [
-    {
-      title: 'Weber Eats',
-      date: 'Saturday, April 11',
-      time: '2:00 PM – 4:00 PM',
-      location: '301 E 28th Street, Ogden UT',
-      locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
-      description: 'Free pizza (provided by Sizzling Platter Little Caesars), free crafts, live music, and a Really Really Free Market — presented by Weber Fridge & USARA.\n\nBring a side to share if you can! Volunteers arrive at 1 PM.',
-      tags: ['Weber Eats', 'Free Food'],
-      color: '#E8538A',
-      sortDate: new Date(2026, 3, 11), // April 11, 2026
-    },
-  ].filter(e => e.sortDate >= new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()));
-
-  const upcomingEvents = [
-    ...recurringEvents.map(e => ({ ...e, sortDate: new Date(e.date) })),
-    ...oneTimeEvents,
-  ].sort((a, b) => a.sortDate - b.sortDate);
-
-  const pastEvents = [
-    {
-      title: 'Weber Fridge 3rd Birthday',
-      date: 'November 22, 2025',
-      description: 'Three years of free food and community! We celebrated with hot food, cake, drinks, and a Really Really Free Market with winter gear.',
+      title: T.events.birthdayTitle,
+      date: T.events.birthdayDate,
+      description: T.events.birthdayDesc,
       emoji: '🎂',
     },
     {
-      title: "Weber Eats: Free Soup & Sandwiches (Valentine's)",
-      date: 'February 14, 2026',
-      description: "A Valentine's Day community meal with soup, sandwiches, and solidarity.",
+      title: T.events.valentinesTitle,
+      date: T.events.valentinesDate,
+      description: T.events.valentinesDesc,
       emoji: '🍲',
     },
-  ];
+  ]);
 </script>
 
 <svelte:head>
@@ -122,14 +117,14 @@
 
 <section class="bg-gradient-to-br from-[#2D2A3E] to-[#4a3060] py-16">
   <div class="max-w-3xl mx-auto px-4 text-center">
-    <h1 class="font-display text-5xl font-black text-white mb-4">Events</h1>
-    <p class="text-gray-300 text-lg italic font-display">Come hungry. Leave full. Always free.</p>
+    <h1 class="font-display text-5xl font-black text-white mb-4">{T.events.title}</h1>
+    <p class="text-gray-300 text-lg italic font-display">{T.events.subtitle}</p>
   </div>
 </section>
 
 <section class="max-w-3xl mx-auto px-4 py-16">
 
-  <h2 class="font-display text-3xl font-black text-[#E8538A] mb-8">Upcoming Events</h2>
+  <h2 class="font-display text-3xl font-black text-[#E8538A] mb-8">{T.events.upcomingTitle}</h2>
 
   <div class="space-y-6 mb-16">
     {#each upcomingEvents as event}
@@ -155,7 +150,7 @@
   <!-- Divider -->
   <div class="flex items-center gap-4 mb-10">
     <div class="flex-1 h-px bg-[#FDE8F0]"></div>
-    <span class="text-xl text-[#2D2A3E]/30 font-display font-bold">Past Events</span>
+    <span class="text-xl text-[#2D2A3E]/30 font-display font-bold">{T.events.pastTitle}</span>
     <div class="flex-1 h-px bg-[#FDE8F0]"></div>
   </div>
 
@@ -175,8 +170,8 @@
 <!-- Stay in touch -->
 <section class="bg-[#EEF8E4] py-14">
   <div class="max-w-3xl mx-auto px-4 text-center">
-    <h2 class="font-display text-3xl font-black text-[#7DC242] mb-3">Stay in the loop</h2>
-    <p class="text-[#2D2A3E]/65 mb-6">Follow us on Instagram or Facebook for the latest event announcements.</p>
+    <h2 class="font-display text-3xl font-black text-[#7DC242] mb-3">{T.events.stayTitle}</h2>
+    <p class="text-[#2D2A3E]/65 mb-6">{T.events.stayText}</p>
     <div class="flex flex-wrap justify-center gap-4">
       <a href="https://www.instagram.com/weberfridge" target="_blank" rel="noopener noreferrer"
         class="px-6 py-3 rounded-full bg-[#E8538A] text-white font-bold hover:bg-[#c93d72] transition-colors shadow">

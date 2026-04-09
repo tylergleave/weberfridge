@@ -1,17 +1,21 @@
 <script>
   import { page } from '$app/stores';
+  import { langStore } from '$lib/stores/lang.svelte.js';
+  import { getT } from '$lib/i18n/index.js';
 
   const logo = '/images/fridge_logo.png';
   let menuOpen = $state(false);
 
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/events', label: 'Events' },
-    { href: '/get-involved', label: 'Get Involved' },
-    { href: '/supporters', label: 'Supporters' },
-    { href: '/contact', label: 'Contact' },
-  ];
+  const T = $derived(getT(langStore.current));
+
+  const navLinks = $derived([
+    { href: '/',             label: T.nav.home },
+    { href: '/about',        label: T.nav.about },
+    { href: '/events',       label: T.nav.events },
+    { href: '/get-involved', label: T.nav.getInvolved },
+    { href: '/supporters',   label: T.nav.supporters },
+    { href: '/contact',      label: T.nav.contact },
+  ]);
 </script>
 
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b-4 border-[#E8538A] shadow-sm">
@@ -40,10 +44,18 @@
       {/each}
       <a
         href="/get-involved#donate"
-        class="ml-3 px-5 py-2 rounded-full bg-[#7DC242] text-white font-bold text-sm hover:bg-[#5A9A2A] transition-colors shadow"
+        class="ml-2 px-5 py-2 rounded-full bg-[#7DC242] text-white font-bold text-sm hover:bg-[#5A9A2A] transition-colors shadow"
       >
-        Donate 🍉
+        {T.nav.donate}
       </a>
+      <!-- Language toggle -->
+      <button
+        onclick={() => langStore.toggle()}
+        class="ml-2 px-3 py-2 rounded-full border-2 border-[#2D2A3E]/20 text-[#2D2A3E]/70 font-bold text-xs hover:border-[#E8538A] hover:text-[#E8538A] transition-all"
+        aria-label="Toggle language"
+      >
+        {T.toggle.label}
+      </button>
     </nav>
 
     <!-- Mobile hamburger -->
@@ -80,8 +92,15 @@
         onclick={() => (menuOpen = false)}
         class="mt-3 block text-center px-5 py-2 rounded-full bg-[#7DC242] text-white font-bold hover:bg-[#5A9A2A]"
       >
-        Donate 🍉
+        {T.nav.donate}
       </a>
+      <!-- Language toggle (mobile) -->
+      <button
+        onclick={() => { langStore.toggle(); menuOpen = false; }}
+        class="mt-3 w-full py-2 rounded-full border-2 border-[#2D2A3E]/20 text-[#2D2A3E]/70 font-bold text-sm hover:border-[#E8538A] hover:text-[#E8538A] transition-all"
+      >
+        {T.toggle.label}
+      </button>
     </nav>
   {/if}
 </header>
