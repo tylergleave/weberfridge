@@ -3,7 +3,7 @@ import { MAILGUN_API_KEY, TURNSTILE_SECRET_KEY } from '$env/static/private';
 import Mailgun from 'mailgun.js';
 
 const MAILGUN_DOMAIN = 'mg.weberfridge.org';
-const TO_ADDRESS = 'gleave@pm.me';
+const TO_ADDRESS = 'weberfridge@gmail.com,gleave@pm.me';
 
 function getMailgunClient() {
   const mg = new Mailgun(FormData);
