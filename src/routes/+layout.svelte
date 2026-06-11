@@ -3,8 +3,22 @@
   import Header from '$lib/components/Header.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { langStore } from '$lib/stores/lang.svelte.js';
+  import { afterNavigate } from '$app/navigation';
+  import { page } from '$app/state';
 
   let { children, data } = $props();
+
+  // Send a GA4 page_view on initial load and every client-side navigation
+  // (page_view is disabled in the gtag config in app.html). gtag() is global.
+  afterNavigate(() => {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: page.url.pathname + page.url.search,
+        page_location: page.url.href,
+        page_title: document.title,
+      });
+    }
+  });
 
   // Initialise from server-detected language (cookie → Accept-Language → 'en').
   // Run inside $effect so the reference to data.lang is tracked reactively
