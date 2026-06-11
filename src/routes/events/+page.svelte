@@ -79,14 +79,14 @@
     const oneTime = [
       {
         title: te.weberEatsTitle,
-        date: currentLang === 'es' ? 'sábado, 11 de abril' : 'Saturday, April 11',
-        time: '2:00 PM – 4:00 PM',
+        date: currentLang === 'es' ? 'sábado, 13 de junio' : 'Saturday, June 13',
+        time: '12:00 PM – 2:00 PM',
         location: '301 E 28th Street, Ogden UT',
         locationUrl: 'https://maps.app.goo.gl/SXxf1E9HAqBzCUpAA',
         description: te.weberEatsDesc,
-        tags: [te.weberEatsTag, te.freeFoodTag],
+        tags: [te.weberEatsTag, te.prideTag, te.freeFoodTag],
         color: '#E8538A',
-        sortDate: new Date(2026, 3, 11),
+        sortDate: new Date(2026, 5, 13),
       },
     ].filter((e) => e.sortDate >= today);
 
